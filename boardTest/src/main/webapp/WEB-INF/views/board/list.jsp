@@ -21,6 +21,22 @@
    	<th><font color=white>작성일</font></th>
    	<th width="10%"><font color=white>조회수</font></th>
    </tr>
+   <c:if test="${empty listBoard}">
+   	<tr>
+   		<td colspan="6"> 등록된 게시글이 없습니다.</td>
+   	</tr>
+   	</c:if>
+   	<c:forEach var = "dto" items="${listBoard}">
+   		<tr>
+   			<td align ="right">${dto.num}</td>
+   			<td>
+   				<a href = "content_board.do?num=${dto.num}">${dto.subject}</a>
+   				</td>
+   				<td align="center">${dto.writer}</td>
+				<td align="center">${dto.reg_date}</td>
+				<td align="center">${dto.readcount}</td> 
+				</tr>
+				</c:forEach>
    </table>
    
   </div>
